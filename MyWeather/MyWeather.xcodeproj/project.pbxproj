@@ -61,6 +61,8 @@
 		2F3811131E1627E400BB6801 /* MyWeather */ = {
 			isa = PBXGroup;
 			children = (
+				2F4DB7CC1E16D9D100AA6A64 /* Model */,
+				2F4DB7CD1E16D9D900AA6A64 /* View */,
 				2F3811141E1627E400BB6801 /* AppDelegate.swift */,
 				2F3811161E1627E400BB6801 /* ViewController.swift */,
 				2F3811181E1627E400BB6801 /* Main.storyboard */,
@@ -69,6 +71,20 @@
 				2F3811201E1627E400BB6801 /* Info.plist */,
 			);
 			path = MyWeather;
+			sourceTree = "<group>";
+		};
+		2F4DB7CC1E16D9D100AA6A64 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2F4DB7CD1E16D9D900AA6A64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		46E8BE4D321182B13C2A7816 /* Frameworks */ = {
@@ -257,6 +273,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -307,6 +324,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -336,6 +354,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 20AC823922C30E3E7B5C935E /* Pods-MyWeather.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GB529ADVEA;
 				INFOPLIST_FILE = MyWeather/Info.plist;
@@ -351,6 +370,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4B28D6FC2BF3AB6343303F83 /* Pods-MyWeather.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GB529ADVEA;
 				INFOPLIST_FILE = MyWeather/Info.plist;
