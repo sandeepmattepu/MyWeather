@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -118,27 +119,27 @@
                                                                 <rect key="frame" x="0.0" y="159" width="139" height="59"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dXv-j5-qti">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="59"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="59"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="150" id="iOO-OB-ecL">
-                                                                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                                                                                <variation key="heightClass=regular-widthClass=compact" constant="90"/>
                                                                             </constraint>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                                        <fontDescription key="fontDescription" name="BlackChancery" family="BlackChancery" pointSize="50"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="aAM-Be-KwE">
-                                                                        <rect key="frame" x="120" y="0.0" width="19" height="59"/>
+                                                                        <rect key="frame" x="110" y="0.0" width="29" height="59"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ect-0E-le7">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="19" height="29.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="29" height="29.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="63" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cii-48-MZa">
-                                                                                <rect key="frame" x="0.0" y="29.5" width="19" height="29.5"/>
+                                                                                <rect key="frame" x="0.0" y="29.5" width="29" height="29.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
@@ -185,13 +186,13 @@
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9kc-7B-Lu1">
                                                                 <rect key="frame" x="0.0" y="109" width="139" height="54.5"/>
-                                                                <fontDescription key="fontDescription" name="BlackChancery" family="BlackChancery" pointSize="20"/>
+                                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sUg-UM-6Nx">
                                                                 <rect key="frame" x="0.0" y="163.5" width="139" height="54.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" name="BlackChancery" family="BlackChancery" pointSize="25"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -228,18 +229,77 @@
                                             <constraint firstAttribute="trailing" secondItem="Ntn-cJ-y2Y" secondAttribute="trailing" constant="16" id="rRR-VL-KiZ"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vxx-zG-Ymm">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="112" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vxx-zG-Ymm">
                                         <rect key="frame" x="0.0" y="310" width="320" height="238"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="forecastWeather" rowHeight="92" id="s9Q-He-JGC">
-                                                <rect key="frame" x="0.0" y="28" width="320" height="92"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="forecastWeather" rowHeight="112" id="s9Q-He-JGC" customClass="ForecastCell" customModule="MyWeather" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="320" height="112"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s9Q-He-JGC" id="QDf-gU-WR4">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="da9-nb-8Ns">
+                                                            <rect key="frame" x="18" y="8" width="65" height="65"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="65" id="jM4-0A-BIg"/>
+                                                                <constraint firstAttribute="width" constant="65" id="wZG-Q6-rOo"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9Fv-ed-PXU">
+                                                            <rect key="frame" x="8" y="79" width="85" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="85" id="ktY-VA-vz3"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="BlackChancery" family="BlackChancery" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KVB-6P-9Se">
+                                                            <rect key="frame" x="117.5" y="40.5" width="85" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="85" id="Cxu-qx-Vb6"/>
+                                                                <constraint firstAttribute="height" constant="30" id="R3G-oX-YzN"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pjX-LZ-zCx">
+                                                            <rect key="frame" x="255" y="28.5" width="41" height="25"/>
+                                                            <fontDescription key="fontDescription" name="BlackChancery" family="BlackChancery" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aPW-ve-EzY">
+                                                            <rect key="frame" x="255" y="79.5" width="41" height="25"/>
+                                                            <fontDescription key="fontDescription" name="BlackChancery" family="BlackChancery" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="pjX-LZ-zCx" firstAttribute="centerY" secondItem="da9-nb-8Ns" secondAttribute="centerY" id="A1f-aO-tSk"/>
+                                                        <constraint firstItem="9Fv-ed-PXU" firstAttribute="leading" secondItem="QDf-gU-WR4" secondAttribute="leadingMargin" id="DXq-jt-Flu"/>
+                                                        <constraint firstItem="KVB-6P-9Se" firstAttribute="centerX" secondItem="QDf-gU-WR4" secondAttribute="centerX" id="JvX-UI-hVG"/>
+                                                        <constraint firstItem="da9-nb-8Ns" firstAttribute="centerX" secondItem="9Fv-ed-PXU" secondAttribute="centerX" id="TJR-U9-H3o"/>
+                                                        <constraint firstItem="aPW-ve-EzY" firstAttribute="centerX" secondItem="pjX-LZ-zCx" secondAttribute="centerX" id="lCt-Vg-ecf"/>
+                                                        <constraint firstItem="KVB-6P-9Se" firstAttribute="centerY" secondItem="QDf-gU-WR4" secondAttribute="centerY" id="oQU-e1-fQw"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="9Fv-ed-PXU" secondAttribute="bottom" id="pWl-vX-ETi"/>
+                                                        <constraint firstItem="aPW-ve-EzY" firstAttribute="centerY" secondItem="9Fv-ed-PXU" secondAttribute="centerY" id="uCX-7u-tgn"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="pjX-LZ-zCx" secondAttribute="trailing" constant="16" id="vH5-xe-ll7"/>
+                                                        <constraint firstItem="da9-nb-8Ns" firstAttribute="top" secondItem="QDf-gU-WR4" secondAttribute="topMargin" id="y9m-Wn-zoG"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" red="0.97612569079343203" green="1" blue="0.70011408607860925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <outlet property="dateLabel" destination="KVB-6P-9Se" id="tmd-7G-1l8"/>
+                                                    <outlet property="maximumLabel" destination="pjX-LZ-zCx" id="ncg-Ek-vep"/>
+                                                    <outlet property="minimumLabel" destination="aPW-ve-EzY" id="wMu-wZ-Zz7"/>
+                                                    <outlet property="weatherType" destination="9Fv-ed-PXU" id="tXF-RA-96E"/>
+                                                    <outlet property="weatherTypeImage" destination="da9-nb-8Ns" id="KpC-yo-dVi"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -267,6 +327,8 @@
                         <outlet property="humidityLabel" destination="sUg-UM-6Nx" id="9Ft-dO-fB7"/>
                         <outlet property="imageView" destination="Lsd-71-fqe" id="UGp-RP-KxO"/>
                         <outlet property="loadingTableView" destination="gJR-Kw-rFq" id="ye5-qm-Xne"/>
+                        <outlet property="maxTempLabel" destination="Ect-0E-le7" id="PoK-Tx-ODv"/>
+                        <outlet property="minTempLabel" destination="cii-48-MZa" id="rvw-Bo-T5u"/>
                         <outlet property="tableVIew" destination="Vxx-zG-Ymm" id="Aw4-DZ-sIz"/>
                         <outlet property="todayTempLoadingView" destination="MGb-RX-aiy" id="iqb-Ze-sYZ"/>
                         <outlet property="weatherType" destination="dBh-5h-a8o" id="fph-c2-W65"/>

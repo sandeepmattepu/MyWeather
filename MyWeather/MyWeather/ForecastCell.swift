@@ -27,8 +27,11 @@ class ForecastCell: UITableViewCell
     {
         dateLabel.text = forecast.dateString
         weatherType.text = forecast.weatherType
-        let imageToLoad = UIImage(named: forecast.weatherType)
-        weatherTypeImage.image = imageToLoad
+        if let weatherAssetName = forecast.weatherTypeImageString
+        {
+            let imageToLoad = UIImage(named: weatherAssetName)
+            weatherTypeImage.image = imageToLoad
+        }
         minimumLabel.text = forecast.minTemperature
         maximumLabel.text = forecast.maxTemperature
     }

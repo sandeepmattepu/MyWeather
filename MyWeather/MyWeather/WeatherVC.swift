@@ -20,6 +20,8 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     @IBOutlet weak var todayTempLoadingView : UIView!
     @IBOutlet weak var loadingTableView : UIView!
     @IBOutlet weak var tableVIew: UITableView!
+    @IBOutlet weak var minTempLabel : UILabel!
+    @IBOutlet weak var maxTempLabel : UILabel!
     
     private var locationManager : CLLocationManager!
     private var todayTemperature = TodayWeather()
@@ -79,6 +81,8 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
             imageView.image = image
         }
         todayTempLoadingView.isHidden = true
+        minTempLabel.text = todayTemperature.minTemperature
+        maxTempLabel.text = todayTemperature.maxTemperature
     }
     
     func setUIForForeCast()

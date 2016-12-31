@@ -61,13 +61,23 @@ class ForecastWeatherData : WeatherData
                                 if let weatherArray = dictionaryAtIndex["weather"] as? Array<Dictionary<String,Any>>
                                 {
                                     let firstweather = weatherArray.first!
+                                    
                                     if let weathertypeValue = firstweather["main"] as? String
                                     {
                                         forecast.weatherType = weathertypeValue
                                     }
+                                    
+                                    if let weatherTypeIcon = firstweather["icon"] as? String
+                                    {
+                                        forecast.weatherTypeImageString = weatherTypeIcon
+                                    }
                                 }
                                 wrapperForForecast.arrayOfForeCast.append(forecast)
                             }
+                            
+                            // Remove first element because it is today's weather
+                            wrapperForForecast.arrayOfForeCast.remove(at: 0)
+                            
                             setUI()
                         }
                     }
