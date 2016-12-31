@@ -1,21 +1,25 @@
 //
 //  AppDelegate.swift
-//  MyWeather
+//  StackyStacky
 //
-//  Created by Sandeep Yadav Mattepu on 12/30/16.
+//  Created by Sandeep Yadav Mattepu on 11/29/16.
 //  Copyright © 2016 Mattepu. All rights reserved.
 //
 
 import UIKit
+import CoreLocation
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var locationManager = CLLocationManager()
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+    {
         // Override point for customization after application launch.
+        FIRApp.configure()
         return true
     }
 
