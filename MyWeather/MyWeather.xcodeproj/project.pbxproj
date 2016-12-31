@@ -11,7 +11,6 @@
 		2F38111C1E1627E400BB6801 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F38111B1E1627E400BB6801 /* Assets.xcassets */; };
 		2F38111F1E1627E400BB6801 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F38111D1E1627E400BB6801 /* LaunchScreen.storyboard */; };
 		2FF487141E176FA8001BED89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF487131E176FA8001BED89 /* AppDelegate.swift */; };
-		2FF487161E176FE9001BED89 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FF487151E176FE9001BED89 /* Info.plist */; };
 		2FF487181E177067001BED89 /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF487171E177067001BED89 /* ForecastCell.swift */; };
 		2FF4871B1E1770A9001BED89 /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4871A1E1770A9001BED89 /* ForecastWeather.swift */; };
 		2FF4871D1E177111001BED89 /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4871C1E177111001BED89 /* OpenWeatherAPI.swift */; };
@@ -21,6 +20,7 @@
 		2FF487251E177146001BED89 /* WrapperForForecastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF487241E177146001BED89 /* WrapperForForecastData.swift */; };
 		2FF487291E179715001BED89 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FF487281E179715001BED89 /* GoogleService-Info.plist */; };
 		2FF4872B1E17AC48001BED89 /* BLKCHCRY.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 2FF4872A1E17AC48001BED89 /* BLKCHCRY.TTF */; };
+		2FF487301E17FACF001BED89 /* ErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4872F1E17FACF001BED89 /* ErrorVC.swift */; };
 		D003B3A838ED51205D6314F8 /* Pods_MyWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA96A42D582AE5D226DF1240 /* Pods_MyWeather.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +41,7 @@
 		2FF487241E177146001BED89 /* WrapperForForecastData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapperForForecastData.swift; sourceTree = "<group>"; };
 		2FF487281E179715001BED89 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FF4872A1E17AC48001BED89 /* BLKCHCRY.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BLKCHCRY.TTF; sourceTree = "<group>"; };
+		2FF4872F1E17FACF001BED89 /* ErrorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorVC.swift; sourceTree = "<group>"; };
 		4B28D6FC2BF3AB6343303F83 /* Pods-MyWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeather/Pods-MyWeather.release.xcconfig"; sourceTree = "<group>"; };
 		CA96A42D582AE5D226DF1240 /* Pods_MyWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				2FF487221E17713D001BED89 /* WeatherVC.swift */,
+				2FF4872F1E17FACF001BED89 /* ErrorVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -208,7 +210,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FF487161E176FE9001BED89 /* Info.plist in Resources */,
 				2F38111F1E1627E400BB6801 /* LaunchScreen.storyboard in Resources */,
 				2FF487291E179715001BED89 /* GoogleService-Info.plist in Resources */,
 				2F38111C1E1627E400BB6801 /* Assets.xcassets in Resources */,
@@ -279,6 +280,7 @@
 				2FF487141E176FA8001BED89 /* AppDelegate.swift in Sources */,
 				2FF4871F1E17711E001BED89 /* TodayWeather.swift in Sources */,
 				2FF487211E17712F001BED89 /* WeatherData.swift in Sources */,
+				2FF487301E17FACF001BED89 /* ErrorVC.swift in Sources */,
 				2FF4871D1E177111001BED89 /* OpenWeatherAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
