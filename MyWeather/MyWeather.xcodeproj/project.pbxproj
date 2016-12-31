@@ -20,6 +20,7 @@
 		2FF487231E17713D001BED89 /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF487221E17713D001BED89 /* WeatherVC.swift */; };
 		2FF487251E177146001BED89 /* WrapperForForecastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF487241E177146001BED89 /* WrapperForForecastData.swift */; };
 		2FF487291E179715001BED89 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FF487281E179715001BED89 /* GoogleService-Info.plist */; };
+		2FF4872B1E17AC48001BED89 /* BLKCHCRY.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 2FF4872A1E17AC48001BED89 /* BLKCHCRY.TTF */; };
 		D003B3A838ED51205D6314F8 /* Pods_MyWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA96A42D582AE5D226DF1240 /* Pods_MyWeather.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		2FF487221E17713D001BED89 /* WeatherVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
 		2FF487241E177146001BED89 /* WrapperForForecastData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapperForForecastData.swift; sourceTree = "<group>"; };
 		2FF487281E179715001BED89 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2FF4872A1E17AC48001BED89 /* BLKCHCRY.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BLKCHCRY.TTF; sourceTree = "<group>"; };
 		4B28D6FC2BF3AB6343303F83 /* Pods-MyWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeather/Pods-MyWeather.release.xcconfig"; sourceTree = "<group>"; };
 		CA96A42D582AE5D226DF1240 /* Pods_MyWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -76,6 +78,7 @@
 		2F3811131E1627E400BB6801 /* MyWeather */ = {
 			isa = PBXGroup;
 			children = (
+				2FF4872C1E17AC4E001BED89 /* Resources */,
 				2F4DB7CC1E16D9D100AA6A64 /* Model */,
 				2F4DB7CD1E16D9D900AA6A64 /* View */,
 				2FF487191E17708A001BED89 /* Controller */,
@@ -115,6 +118,14 @@
 				2FF487221E17713D001BED89 /* WeatherVC.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		2FF4872C1E17AC4E001BED89 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2FF4872A1E17AC48001BED89 /* BLKCHCRY.TTF */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		46E8BE4D321182B13C2A7816 /* Frameworks */ = {
@@ -201,6 +212,7 @@
 				2F38111F1E1627E400BB6801 /* LaunchScreen.storyboard in Resources */,
 				2FF487291E179715001BED89 /* GoogleService-Info.plist in Resources */,
 				2F38111C1E1627E400BB6801 /* Assets.xcassets in Resources */,
+				2FF4872B1E17AC48001BED89 /* BLKCHCRY.TTF in Resources */,
 				2F38111A1E1627E400BB6801 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,7 +26,7 @@ class TodayWeather : WeatherData
     }
     
     // Actual implementation making request to API using passed parameters in updateObjectAndUI
-    private func downloadTodayWeatherAt(Latitude : Float, Longitude : Float, setUI : @escaping ()->Void)
+    private func downloadTodayWeatherAt(Latitude : Float, Longitude : Float, setUI : @escaping (String?)->Void)
     {
         let requestFromAPI = Alamofire.request(OpenWeatherAPI.getURLStringForCurrentWeatherAt(Latitude: Latitude, Longitude: Longitude))
         requestFromAPI.responseJSON(completionHandler: {
@@ -66,7 +66,7 @@ class TodayWeather : WeatherData
                     {
                         self.cityName = "Unknown"
                     }
-                    setUI()
+                    setUI(self.weatherTypeImageString);
                 }
                 else    // If response is success but JSON is invalid
                 {
@@ -80,7 +80,7 @@ class TodayWeather : WeatherData
         })
     }
     
-    /** This function is to format all the weather data into proper decimal numbers, also to convert temperature from Kelvin to
+    /** This function is to parse and format all the weather data into proper decimal numbers, also to convert temperature from Kelvin to
         degrees centigrade
      
          - Parameter dicAtKeyMain: Pass a dictionary of temperatures which is obtained after parsing JSON at main key
@@ -112,7 +112,7 @@ class TodayWeather : WeatherData
             else{  self.maxTemperature = "Unknown"  }
             if let humidValue = dicAtKeyMain["humidity"] as? Double
             {
-                self.humidity = "\(humidValue)"
+                self.humidity = "\(humidValue)%"
             }
             else{  self.humidity = "Unknown"  }
         }
@@ -136,7 +136,7 @@ class TodayWeather : WeatherData
         self.cityName = "Unknown"
     }
     
-    func updateObjectAndUI(setUI : @escaping ()->Void, latitudeAndLongitude :(Float,Float))
+    func updateObjectAndUI(setUI : @escaping (String?)->Void, latitudeAndLongitude :(Float,Float))
     {
         downloadTodayWeatherAt(Latitude: latitudeAndLongitude.0, Longitude: latitudeAndLongitude.1, setUI: setUI)
     }

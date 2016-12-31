@@ -21,6 +21,7 @@ class WeatherData
     var humidity : String = ""
     var weatherType : String = ""
     var cityName : String = ""
+    var weatherTypeImageString : String? = nil
     
     init()
     {
@@ -35,9 +36,13 @@ class WeatherData
         if arrayOfDic.count != 0
         {
             let weatherData = arrayOfDic.first!
+            
             if let weatherInfo = weatherData["main"] as? String
             {   weatherType = weatherInfo   }
             else{   weatherType = "Unknown" }
+            
+            if let weatherImage = weatherData["icon"] as? String
+            {   weatherTypeImageString = weatherImage   }
         }
         else
         {

@@ -67,15 +67,17 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         return ForecastCell()
     }
     
-    func updateUIForTodayTemperature()
+    func updateUIForTodayTemperature(imageFileName : String?)
     {
         averageTemp.text = todayTemperature.averageTemperature
         weatherType.text = todayTemperature.weatherType
         cityNameLabel.text = todayTemperature.cityName
         humidityLabel.text = todayTemperature.humidity
-        let weatherTypeAssetName = todayTemperature.weatherType.capitalized
-        let imageToLoad = UIImage(named: weatherTypeAssetName)
-        imageView.image = imageToLoad
+        if imageFileName != nil
+        {
+            let image = UIImage(named: imageFileName!)
+            imageView.image = image
+        }
         todayTempLoadingView.isHidden = true
     }
     
