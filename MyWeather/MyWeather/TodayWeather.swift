@@ -9,6 +9,10 @@
 import Foundation
 import Alamofire
 
+/**
+    This class contains all the model layer details of today's weather. Use this class instance to make API request for
+    today's weather.
+ */
 class TodayWeather : WeatherData
 {
     override init()
@@ -20,6 +24,8 @@ class TodayWeather : WeatherData
         let date = Date()
         self.dateString = dateFormatter.string(from: date)
     }
+    
+    // Actual implementation making request to API using passed parameters in updateObjectAndUI
     private func downloadTodayWeatherAt(Latitude : Float, Longitude : Float, setUI : @escaping ()->Void)
     {
         let requestFromAPI = Alamofire.request(OpenWeatherAPI.getURLStringForCurrentWeatherAt(Latitude: Latitude, Longitude: Longitude))
@@ -74,6 +80,11 @@ class TodayWeather : WeatherData
         })
     }
     
+    /** This function is to format all the weather data into proper decimal numbers, also to convert temperature from Kelvin to
+        degrees centigrade
+     
+         - Parameter dicAtKeyMain: Pass a dictionary of temperatures which is obtained after parsing JSON at main key
+     */
     private func setAllTemperatures(dicAtKeyMain : Dictionary<String, Any>)
     {
         let numberFormatter = NumberFormatter()

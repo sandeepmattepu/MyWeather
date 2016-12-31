@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+    Parent class for all weather model classes. This class contains all basic properties to describe weather
+ */
 class WeatherData
 {
     //date,temp(day),minTemp,maxTemp,humidity,weather,cityname
@@ -24,7 +27,8 @@ class WeatherData
     }
     
     /**
-     Pass Array of weather data as parameters
+        Pass Array of weather data as parameters
+        - Parameter arrayOfDic: Pass an array of dictionary to parse Weather type data
     */
     final func setWeatherTypeFrom(arrayOfDic : Array<Dictionary<String,Any>>)
     {

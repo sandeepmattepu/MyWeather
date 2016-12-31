@@ -9,13 +9,16 @@
 import Foundation
 import Alamofire
 
+/**
+    This class is used to make request of Forecast data and set the UI after downloading the data
+ */
 class ForecastWeatherData : WeatherData
 {
     private var _numberOfWeatherReports : Int = 0
     var numberOfWeatherReports : Int
         {   return  _numberOfWeatherReports     }
     
-    //day name, weather type, min temp, max temp
+    // Actual implementation making request to API using passed parameters in updateObjectAndUI
     private func downloadForeCastWeatherAt(Latitude : Float, Longitude : Float, wrapperForForecast : WrapperForForecastData, setUI : @escaping ()->Void)
     {
         let requestFromAPI = Alamofire.request(OpenWeatherAPI.getURLStringForForecast(Latitude: Latitude, Longitude: Longitude))
@@ -88,6 +91,13 @@ class ForecastWeatherData : WeatherData
         self.maxTemperature = "Unknown"
     }
     
+    /**
+        This method will determine what UI need to be set after downloading data, also it will determine Weather based on which geometric coordinated
+     
+        - Parameter wrapperForForeCast: Pass a WrapperForForecastDate instance
+        - Parameter setUI: Pass closure which accepts code to set UI
+        - Parameter latitudeAndLongitude: Pass Latitude and longitude tuple
+    */
     func updateObjectAndUI(wrapperForForeCast : WrapperForForecastData, setUI : @escaping ()->Void, latitudeAndLongitude :(Float,Float))
     {
         downloadForeCastWeatherAt(Latitude: latitudeAndLongitude.0, Longitude: latitudeAndLongitude.1, wrapperForForecast: wrapperForForeCast, setUI: setUI)

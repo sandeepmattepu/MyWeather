@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--WeatherVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherVC" customModule="MyWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -187,6 +187,14 @@
                             <constraint firstItem="FuL-8y-n4y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oPM-5A-w13"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="averageTemp" destination="dXv-j5-qti" id="n38-Sq-jlI"/>
+                        <outlet property="cityNameLabel" destination="agi-ke-axM" id="Q9o-i8-wmW"/>
+                        <outlet property="humidityLabel" destination="sUg-UM-6Nx" id="9Ft-dO-fB7"/>
+                        <outlet property="imageView" destination="Lsd-71-fqe" id="UGp-RP-KxO"/>
+                        <outlet property="tableVIew" destination="Vxx-zG-Ymm" id="Aw4-DZ-sIz"/>
+                        <outlet property="weatherType" destination="dBh-5h-a8o" id="fph-c2-W65"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

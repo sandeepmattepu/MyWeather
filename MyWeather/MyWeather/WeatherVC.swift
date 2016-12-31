@@ -13,7 +13,6 @@ import CoreLocation
 class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate
 {
     @IBOutlet weak var averageTemp: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var weatherType: UILabel!
     @IBOutlet weak var cityNameLabel : UILabel!
@@ -34,12 +33,13 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         tableVIew.dataSource = self
         tableVIew.delegate = self
         
+        // To access location we need permission from user
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         locationManager = appDelegate.locationManager
         locationManager.delegate = self
         if CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .denied
         {
-            // Sad face
+            //Show sorry we can't show weather view
             sorryCodeForNoWeather()
         }
         else if CLLocationManager.authorizationStatus() != .authorizedWhenInUse
@@ -48,6 +48,7 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
         else
         {
+            // After retriving location download data
             attemptDownloading()
         }
     }
@@ -70,7 +71,6 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func updateUIForTodayTemperature()
     {
         averageTemp.text = todayTemperature.averageTemperature
-        dateLabel.text = todayTemperature.dateString
         weatherType.text = todayTemperature.weatherType
         cityNameLabel.text = todayTemperature.cityName
         humidityLabel.text = todayTemperature.humidity
@@ -84,11 +84,6 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     {
         tableVIew.reloadData()
         loadingTableView.isHidden = true
-    }
-    
-    @IBAction func backPressed(sender : UIButton)
-    {
-        dismiss(animated: true, completion: nil)
     }
     
     private func attemptDownloading()

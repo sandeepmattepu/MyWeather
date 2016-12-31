@@ -8,6 +8,9 @@
 
 import Foundation
 
+/** This class is to pass Weather Data between Model and Controller. Arrays in swift are value types. So we wrap a class
+    to pass data as reference type.
+ */
 class WrapperForForecastData
 {
     var arrayOfForeCast = Array<ForecastWeatherData>()
