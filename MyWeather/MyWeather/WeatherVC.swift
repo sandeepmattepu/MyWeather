@@ -20,7 +20,6 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     @IBOutlet weak var todayTempLoadingView : UIView!
     @IBOutlet weak var loadingTableView : UIView!
     @IBOutlet weak var tableVIew: UITableView!
-    @IBOutlet weak var sorryView: UIView!
     
     private var locationManager : CLLocationManager!
     private var todayTemperature = TodayWeather()
@@ -40,7 +39,7 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         if CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .denied
         {
             //Show sorry we can't show weather view
-            sorryCodeForNoWeather()
+            // prepare segue
         }
         else if CLLocationManager.authorizationStatus() != .authorizedWhenInUse
         {
@@ -103,13 +102,11 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     {
         if status == .authorizedWhenInUse
         {
-            sorryView.isHidden = true
             attemptDownloading()
         }
         else if status == .denied || status == .restricted
         {
-            // sad face
-            sorryCodeForNoWeather()
+            //prepare segue
         }
     }
     
@@ -126,11 +123,6 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
         print(error.localizedDescription)
-    }
-    
-    func sorryCodeForNoWeather()
-    {
-        sorryView.isHidden = false
     }
 }
 
