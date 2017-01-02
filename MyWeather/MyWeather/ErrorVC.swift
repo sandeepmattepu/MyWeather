@@ -11,10 +11,13 @@ import UIKit
 class ErrorVC: UIViewController
 {
 
-    @IBOutlet weak var reasonForRequest : UILabel!
+    @IBOutlet weak var failedReasonLabel : UILabel!
+    
+    var failedReason : WeatherFailedReason!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        failedReasonLabel.text = failedReason.rawValue
     }
 }

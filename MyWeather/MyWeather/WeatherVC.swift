@@ -33,15 +33,21 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         super.viewDidLoad()
         tableVIew.dataSource = self
         tableVIew.delegate = self
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
         // To access location we need permission from user
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         locationManager = appDelegate.locationManager
         locationManager.delegate = self
-        if CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .denied
+        let authorizationStatus = CLLocationManager.authorizationStatus()
+        print(CLAuthorizationStatus.statusInString(id: authorizationStatus.rawValue))
+        // Parentel controlls turned on for restricted
+        if (authorizationStatus == .restricted) || (authorizationStatus == .denied)
         {
-            //Show sorry we can't show weather view
-            // prepare segue
+            performSegue(withIdentifier: "SorryView", sender: WeatherFailedReason.LOCATION_SERVICES_IS_OFF)
         }
         else if CLLocationManager.authorizationStatus() != .authorizedWhenInUse
         {
@@ -129,6 +135,20 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
         print(error.localizedDescription)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "SorryView"
+        {
+            if let failedReason = sender as? WeatherFailedReason
+            {
+                if let errorVC = segue.destination as? ErrorVC
+                {
+                    errorVC.failedReason = failedReason
+                }
+            }
+        }
     }
 }
 
