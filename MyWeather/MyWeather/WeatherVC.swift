@@ -45,6 +45,7 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         let authorizationStatus = CLLocationManager.authorizationStatus()
         print(CLAuthorizationStatus.statusInString(id: authorizationStatus.rawValue))
         // Parentel controlls turned on for restricted
+        // User turned of for location services for denied
         if (authorizationStatus == .restricted) || (authorizationStatus == .denied)
         {
             performSegue(withIdentifier: "SorryView", sender: WeatherFailedReason.LOCATION_SERVICES_IS_OFF)

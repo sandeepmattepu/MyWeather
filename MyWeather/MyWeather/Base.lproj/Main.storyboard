@@ -447,7 +447,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Location Services" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vkX-3K-9R9">
-                                        <rect key="frame" x="60" y="25.5" width="200" height="20"/>
+                                        <rect key="frame" x="60" y="25" width="200" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="8fn-s9-V6a"/>
                                             <constraint firstAttribute="height" constant="20" id="IZE-bC-EFX"/>
@@ -464,12 +464,65 @@
                                     <constraint firstAttribute="height" constant="70" id="TTW-uH-k4W"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHs-SX-dTa">
+                                <rect key="frame" x="15" y="113" width="290" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="09o-1b-ZkA"/>
+                                    <constraint firstAttribute="width" constant="290" id="F9N-oo-TIK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BeforeOn" translatesAutoresizingMaskIntoConstraints="NO" id="Tgt-HT-FJh">
+                                <rect key="frame" x="32" y="149" width="256" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="p9v-G0-B8b"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xaw-ww-tRF">
+                                <rect key="frame" x="93" y="518" width="134" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="134" id="BkD-oY-I4A"/>
+                                    <constraint firstAttribute="height" constant="30" id="wMa-BU-Nfy"/>
+                                </constraints>
+                                <state key="normal" title="Take me to settings"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set to while using the app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVb-M4-0Cr">
+                                <rect key="frame" x="32" y="323" width="256" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="I2Y-Oh-Ikp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AfterOn" translatesAutoresizingMaskIntoConstraints="NO" id="M6J-SU-w8d">
+                                <rect key="frame" x="32" y="352" width="256" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Pxa-gv-NW5"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.95686274509803915" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="M6J-SU-w8d" firstAttribute="top" secondItem="OVb-M4-0Cr" secondAttribute="bottom" constant="8" id="0Ke-LF-tis"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tgt-HT-FJh" secondAttribute="trailing" constant="16" id="3Hc-P3-LT8"/>
+                            <constraint firstItem="Xaw-ww-tRF" firstAttribute="centerX" secondItem="VXh-Kg-JF1" secondAttribute="centerX" id="6eC-KN-4aK"/>
+                            <constraint firstItem="Tgt-HT-FJh" firstAttribute="top" secondItem="qHs-SX-dTa" secondAttribute="bottom" constant="16" id="96K-kF-f7V"/>
                             <constraint firstItem="EDs-q1-vBe" firstAttribute="top" secondItem="VXh-Kg-JF1" secondAttribute="top" id="A7M-nS-pc8"/>
+                            <constraint firstItem="qHs-SX-dTa" firstAttribute="top" secondItem="EDs-q1-vBe" secondAttribute="bottom" constant="43" id="BZ9-GY-xl2"/>
+                            <constraint firstItem="qHs-SX-dTa" firstAttribute="centerX" secondItem="VXh-Kg-JF1" secondAttribute="centerX" id="P9o-o3-n4w"/>
+                            <constraint firstItem="OVb-M4-0Cr" firstAttribute="leading" secondItem="M6J-SU-w8d" secondAttribute="leading" id="RbU-GW-2AP"/>
+                            <constraint firstItem="M6J-SU-w8d" firstAttribute="trailing" secondItem="Tgt-HT-FJh" secondAttribute="trailing" id="Sgt-Yl-bHE"/>
+                            <constraint firstItem="M6J-SU-w8d" firstAttribute="leading" secondItem="Tgt-HT-FJh" secondAttribute="leading" id="eBQ-4Q-aCg"/>
                             <constraint firstAttribute="trailing" secondItem="EDs-q1-vBe" secondAttribute="trailing" id="esz-Nj-vUt"/>
                             <constraint firstItem="EDs-q1-vBe" firstAttribute="leading" secondItem="VXh-Kg-JF1" secondAttribute="leading" id="kG8-Zs-E61"/>
+                            <constraint firstItem="fEb-H8-7Sj" firstAttribute="top" secondItem="Xaw-ww-tRF" secondAttribute="bottom" constant="20" id="lvv-cd-zif"/>
+                            <constraint firstItem="Xaw-ww-tRF" firstAttribute="top" secondItem="M6J-SU-w8d" secondAttribute="bottom" constant="16" id="qxm-0l-uRy"/>
+                            <constraint firstItem="M6J-SU-w8d" firstAttribute="centerX" secondItem="VXh-Kg-JF1" secondAttribute="centerX" id="xAF-lv-Wwc"/>
+                            <constraint firstItem="Tgt-HT-FJh" firstAttribute="leading" secondItem="VXh-Kg-JF1" secondAttribute="leadingMargin" constant="16" id="zK4-op-F1W"/>
+                            <constraint firstItem="OVb-M4-0Cr" firstAttribute="trailing" secondItem="M6J-SU-w8d" secondAttribute="trailing" id="zxp-bC-h2U"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -479,6 +532,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AfterOn" width="640" height="426"/>
+        <image name="BeforeOn" width="640" height="426"/>
         <image name="SadFace" width="421" height="421"/>
     </resources>
 </document>
