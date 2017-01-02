@@ -12,20 +12,24 @@ class ErrorVC: UIViewController
 {
 
     @IBOutlet weak var failedReasonLabel : UILabel!
-    var empty : [String : Any] = [String : Any]()
     
+    @IBOutlet weak var grantPermissionButton: UIButton!
     var failedReason : WeatherFailedReason!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         failedReasonLabel.text = failedReason.rawValue
+        
+        if failedReason == WeatherFailedReason.PARENTAL_CONTROL_ON
+        {
+            grantPermissionButton.isHidden = true
+        }
     }
     
     // TODO remove this code
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        UIApplication.shared.open(URL(string:UIApplicationOpenSettingsURLString)!, options: empty, completionHandler: nil)
     }
 }

@@ -425,6 +425,7 @@
                     </view>
                     <connections>
                         <outlet property="failedReasonLabel" destination="qvy-k2-wNH" id="kFh-hn-GxR"/>
+                        <outlet property="grantPermissionButton" destination="K4v-UR-A2K" id="yij-9s-qCf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yuO-un-A7E" userLabel="First Responder" sceneMemberID="firstResponder"/>
