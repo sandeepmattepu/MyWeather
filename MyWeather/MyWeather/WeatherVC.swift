@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreLocation
+import ReachabilitySwift
 
 class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate
 {
@@ -27,6 +28,7 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     private var todayTemperature = TodayWeather()
     private var forecastWeather = WrapperForForecastData()
     private var latitudeAndLongitude : (Double,Double) = (39,135)
+    private let reachability = AppDelegate.rechability
     
     override func viewDidLoad()
     {
@@ -59,18 +61,26 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         else
         {
             // After retriving location check data connection and download data
-            let reachability = AppDelegate.rechability
+            
             reachability.whenReachable = { reachability in
                 DispatchQueue.main.async
                 {
-                    print("Rechable")
+                    AppDelegate.hasConnectedToInternet = true
+                    if AppDelegate.currentViewController != WeatherVC.self
+                    {
+                        self.dismiss(animated: true, completion: nil)
+                    }
                     self.attemptDownloading()
                 }
             }
             reachability.whenUnreachable = { reachability in
                 DispatchQueue.main.async
                 {
-                    self.performSegue(withIdentifier: "SorryView", sender: WeatherFailedReason.NO_INTERNET)
+                    AppDelegate.hasConnectedToInternet = false
+                    if AppDelegate.currentViewController == WeatherVC.self
+                    {
+                        self.performSegue(withIdentifier: "SorryView", sender: WeatherFailedReason.NO_INTERNET)
+                    }
                 }
             }
             do

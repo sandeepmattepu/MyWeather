@@ -25,9 +25,17 @@ class ErrorVC: UIViewController
         {
             grantPermissionButton.isHidden = true
         }
+        else if failedReason == WeatherFailedReason.NO_INTERNET
+        {
+            grantPermissionButton.isHidden = true
+        }
+        else if failedReason == WeatherFailedReason.LOCATION_SERVICES_IS_OFF
+        {
+            grantPermissionButton.isHidden = false
+        }
+        
     }
     
-    // TODO remove this code
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)

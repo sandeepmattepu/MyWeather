@@ -197,7 +197,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="320" height="112"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s9Q-He-JGC" id="QDf-gU-WR4">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="111.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="da9-nb-8Ns">
@@ -367,7 +367,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are unable to show weather" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="su4-QG-X5K">
-                                <rect key="frame" x="38.5" y="147" width="243" height="75"/>
+                                <rect key="frame" x="38.5" y="145" width="243" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="11h-vh-C8I"/>
                                     <constraint firstAttribute="width" constant="243" id="yMM-Fm-H8Y"/>
@@ -377,14 +377,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcb-zC-Smv">
-                                <rect key="frame" x="132" y="100" width="56.5" height="22"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                <rect key="frame" x="133" y="100" width="55" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="EuB-F2-KkP"/>
+                                    <constraint firstAttribute="width" constant="55" id="yhT-8I-IJV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SadFace" translatesAutoresizingMaskIntoConstraints="NO" id="HAR-TC-l7u">
-                                <rect key="frame" x="38" y="230" width="240" height="188"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SadFace" translatesAutoresizingMaskIntoConstraints="NO" id="HAR-TC-l7u">
+                                <rect key="frame" x="40" y="228" width="240" height="190"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="HQa-Ae-QBI"/>
+                                    <constraint firstAttribute="width" constant="240" id="pJY-Ve-qSD"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4v-UR-A2K">
                                 <rect key="frame" x="83" y="518" width="155" height="30"/>
@@ -397,7 +404,7 @@
                                     <segue destination="Xij-Wc-phv" kind="show" id="eMu-hH-5nG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qvy-k2-wNH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason for failure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qvy-k2-wNH">
                                 <rect key="frame" x="16" y="473" width="288" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="lPx-vD-3ht"/>
@@ -410,8 +417,10 @@
                         <color key="backgroundColor" red="1" green="0.95686274509803915" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="I2O-7x-SMe" firstAttribute="top" secondItem="Oh8-6j-VFG" secondAttribute="top" id="4US-Gd-4b6"/>
+                            <constraint firstItem="qvy-k2-wNH" firstAttribute="top" secondItem="HAR-TC-l7u" secondAttribute="bottom" constant="55" id="74F-0m-C18"/>
                             <constraint firstItem="gcb-zC-Smv" firstAttribute="centerX" secondItem="Oh8-6j-VFG" secondAttribute="centerX" id="9Hm-d1-FWO"/>
                             <constraint firstItem="QHd-cW-9Iy" firstAttribute="top" secondItem="K4v-UR-A2K" secondAttribute="bottom" constant="20" id="Ewb-Hn-fBM"/>
+                            <constraint firstItem="HAR-TC-l7u" firstAttribute="centerX" secondItem="Oh8-6j-VFG" secondAttribute="centerX" id="Mgt-ug-AzI"/>
                             <constraint firstItem="su4-QG-X5K" firstAttribute="top" secondItem="gcb-zC-Smv" secondAttribute="bottom" constant="25" id="PlO-hR-cGR"/>
                             <constraint firstItem="su4-QG-X5K" firstAttribute="centerX" secondItem="Oh8-6j-VFG" secondAttribute="centerX" id="XF6-Bu-BoO"/>
                             <constraint firstItem="qvy-k2-wNH" firstAttribute="trailing" secondItem="Oh8-6j-VFG" secondAttribute="trailingMargin" id="YvI-Fs-m2U"/>

@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 {
     static var currentViewController : UIViewController.Type!
     static let rechability = Reachability()!
+    static var hasConnectedToInternet : Bool = false
     var window: UIWindow?
     var locationManager = CLLocationManager()
 
