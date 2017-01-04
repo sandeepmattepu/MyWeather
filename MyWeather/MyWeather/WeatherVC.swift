@@ -38,6 +38,8 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
+        AppDelegate.currentViewController = WeatherVC.self
+        
         // To access location we need permission from user
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         locationManager = appDelegate.locationManager
@@ -115,11 +117,25 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     {
         if status == .authorizedWhenInUse
         {
-            attemptDownloading()
+            if (AppDelegate.currentViewController != WeatherVC.self)
+            {
+                dismiss(animated: true, completion: nil)
+                attemptDownloading()
+            }
         }
-        else if status == .denied || status == .restricted
+        else if status == .denied
         {
-            //prepare segue
+            if (AppDelegate.currentViewController == WeatherVC.self)
+            {
+                performSegue(withIdentifier: "SorryView", sender: WeatherFailedReason.LOCATION_SERVICES_IS_OFF)
+            }
+        }
+        else if status == .restricted
+        {
+            if (AppDelegate.currentViewController == WeatherVC.self)
+            {
+                performSegue(withIdentifier: "SorryView", sender: WeatherFailedReason.PARENTAL_CONTROL_ON)
+            }
         }
     }
     

@@ -197,7 +197,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="320" height="112"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s9Q-He-JGC" id="QDf-gU-WR4">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="111.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="da9-nb-8Ns">
@@ -227,7 +227,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pjX-LZ-zCx">
-                                                            <rect key="frame" x="255" y="28" width="41" height="25"/>
+                                                            <rect key="frame" x="255" y="28.5" width="41" height="25"/>
                                                             <fontDescription key="fontDescription" name="BlackChancery" family="BlackChancery" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -432,10 +432,10 @@
             </objects>
             <point key="canvasLocation" x="759.375" y="36.971830985915496"/>
         </scene>
-        <!--View Controller-->
+        <!--Set LocationVC-->
         <scene sceneID="CuW-TV-b81">
             <objects>
-                <viewController id="Xij-Wc-phv" sceneMemberID="viewController">
+                <viewController id="Xij-Wc-phv" customClass="SetLocationVC" customModule="MyWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Itg-1u-zLP"/>
                         <viewControllerLayoutGuide type="bottom" id="fEb-H8-7Sj"/>
@@ -488,6 +488,9 @@
                                     <constraint firstAttribute="height" constant="30" id="wMa-BU-Nfy"/>
                                 </constraints>
                                 <state key="normal" title="Take me to settings"/>
+                                <connections>
+                                    <action selector="takeMeToSettingsPressed:" destination="Xij-Wc-phv" eventType="touchUpInside" id="hnK-ZK-Duq"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set to while using the app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVb-M4-0Cr">
                                 <rect key="frame" x="32" y="323" width="256" height="21"/>

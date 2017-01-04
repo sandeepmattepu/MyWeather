@@ -31,5 +31,6 @@ class ErrorVC: UIViewController
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
+        AppDelegate.currentViewController = ErrorVC.self
     }
 }
