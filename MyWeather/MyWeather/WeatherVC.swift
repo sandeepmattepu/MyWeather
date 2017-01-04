@@ -58,8 +58,29 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
         else
         {
-            // After retriving location download data
-            attemptDownloading()
+            // After retriving location check data connection and download data
+            let reachability = AppDelegate.rechability
+            reachability.whenReachable = { reachability in
+                DispatchQueue.main.async
+                {
+                    print("Rechable")
+                    self.attemptDownloading()
+                }
+            }
+            reachability.whenUnreachable = { reachability in
+                DispatchQueue.main.async
+                {
+                    self.performSegue(withIdentifier: "SorryView", sender: WeatherFailedReason.NO_INTERNET)
+                }
+            }
+            do
+            {
+                try reachability.startNotifier()
+            }
+            catch
+            {
+                print("Unknown error")
+            }
         }
     }
     

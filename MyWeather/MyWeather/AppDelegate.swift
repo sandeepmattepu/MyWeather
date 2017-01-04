@@ -9,11 +9,13 @@
 import UIKit
 import CoreLocation
 import Firebase
+import ReachabilitySwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
     static var currentViewController : UIViewController.Type!
+    static let rechability = Reachability()!
     var window: UIWindow?
     var locationManager = CLLocationManager()
 
