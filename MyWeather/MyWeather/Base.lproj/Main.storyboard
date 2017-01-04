@@ -27,6 +27,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGb-RX-aiy" userLabel="TodayWeatherLoadingView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="275"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5Jx-n3-jKe">
+                                        <rect key="frame" x="145" y="123" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="UDe-LY-zZh"/>
+                                            <constraint firstAttribute="height" constant="30" id="fpx-Oz-FVQ"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.95686274509803915" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5Jx-n3-jKe" firstAttribute="centerX" secondItem="MGb-RX-aiy" secondAttribute="centerX" id="Qh5-cE-d2C"/>
+                                    <constraint firstItem="5Jx-n3-jKe" firstAttribute="centerY" secondItem="MGb-RX-aiy" secondAttribute="centerY" id="X1B-pA-dKD"/>
+                                    <constraint firstAttribute="height" constant="275" id="iIb-DH-fFp">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="160"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="200"/>
+                                    </constraint>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJR-Kw-rFq" userLabel="ForeCastWeatherLoadingView">
+                                <rect key="frame" x="0.0" y="275" width="320" height="293"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1hZ-Re-j7M">
+                                        <rect key="frame" x="145" y="132" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="p2l-YG-27c"/>
+                                            <constraint firstAttribute="width" constant="30" id="uYT-DQ-D3T"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luo-ty-flP">
+                                        <rect key="frame" x="106" y="239" width="109" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="109" id="BoL-Mz-dAp"/>
+                                            <constraint firstAttribute="height" constant="30" id="LSg-2e-R93"/>
+                                        </constraints>
+                                        <state key="normal" title="Reload Weather"/>
+                                        <connections>
+                                            <action selector="reloadWethterData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tlh-1E-lqF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.54509803921568623" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Luo-ty-flP" secondAttribute="bottom" constant="24" id="BaZ-ks-KVT"/>
+                                    <constraint firstItem="1hZ-Re-j7M" firstAttribute="centerY" secondItem="gJR-Kw-rFq" secondAttribute="centerY" id="Vep-x9-qcA"/>
+                                    <constraint firstItem="Luo-ty-flP" firstAttribute="centerX" secondItem="gJR-Kw-rFq" secondAttribute="centerX" id="cxi-kI-bAk"/>
+                                    <constraint firstItem="1hZ-Re-j7M" firstAttribute="centerX" secondItem="gJR-Kw-rFq" secondAttribute="centerX" id="yJG-mp-GJr"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wlx-ki-6Cv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
@@ -40,11 +91,11 @@
                                                         <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                                     </constraint>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="BlackChancery" family="BlackChancery" pointSize="23"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" name="BlackChancery" family="BlackChancery" pointSize="35"/>
+                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="35"/>
                                                 </variation>
                                             </label>
                                         </subviews>
@@ -134,7 +185,7 @@
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hyderabad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="agi-ke-axM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="139" height="54.5"/>
-                                                                <fontDescription key="fontDescription" name="BlackChancery" family="BlackChancery" pointSize="30"/>
+                                                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
                                                                 <color key="textColor" red="1" green="0.3317351770029322" blue="0.40558955138141894" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -265,44 +316,6 @@
                                     </tableView>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGb-RX-aiy" userLabel="TodayWeatherLoadingView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="275"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5Jx-n3-jKe">
-                                        <rect key="frame" x="145" y="123" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="UDe-LY-zZh"/>
-                                            <constraint firstAttribute="height" constant="30" id="fpx-Oz-FVQ"/>
-                                        </constraints>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.95686274509803915" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="5Jx-n3-jKe" firstAttribute="centerX" secondItem="MGb-RX-aiy" secondAttribute="centerX" id="Qh5-cE-d2C"/>
-                                    <constraint firstItem="5Jx-n3-jKe" firstAttribute="centerY" secondItem="MGb-RX-aiy" secondAttribute="centerY" id="X1B-pA-dKD"/>
-                                    <constraint firstAttribute="height" constant="275" id="iIb-DH-fFp">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="160"/>
-                                        <variation key="heightClass=compact-widthClass=regular" constant="200"/>
-                                    </constraint>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJR-Kw-rFq" userLabel="ForeCastWeatherLoadingView">
-                                <rect key="frame" x="0.0" y="275" width="320" height="293"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1hZ-Re-j7M">
-                                        <rect key="frame" x="145" y="132" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="p2l-YG-27c"/>
-                                            <constraint firstAttribute="width" constant="30" id="uYT-DQ-D3T"/>
-                                        </constraints>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.54509803921568623" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="1hZ-Re-j7M" firstAttribute="centerY" secondItem="gJR-Kw-rFq" secondAttribute="centerY" id="Vep-x9-qcA"/>
-                                    <constraint firstItem="1hZ-Re-j7M" firstAttribute="centerX" secondItem="gJR-Kw-rFq" secondAttribute="centerX" id="yJG-mp-GJr"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

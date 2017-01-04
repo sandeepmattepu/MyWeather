@@ -198,5 +198,10 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
             }
         }
     }
+    
+    @IBAction func reloadWethterData(_ sender: UIButton)
+    {
+        attemptDownloading()
+    }
 }
 
