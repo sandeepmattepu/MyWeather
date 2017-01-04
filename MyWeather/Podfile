@@ -8,4 +8,5 @@ target 'MyWeather' do
     pod 'Alamofire', '~> 4.0'
     pod 'Firebase/Core'
     pod 'Firebase/AdMob'
+    pod 'ReachabilitySwift', '~> 3'
 end

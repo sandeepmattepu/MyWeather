@@ -23,11 +23,13 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.0)
   - GoogleToolboxForMac/NSData+zlib (2.1.0):
     - GoogleToolboxForMac/Defines (= 2.1.0)
+  - ReachabilitySwift (3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - Firebase/AdMob
   - Firebase/Core
+  - ReachabilitySwift (~> 3)
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
@@ -39,7 +41,8 @@ SPEC CHECKSUMS:
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
 
-PODFILE CHECKSUM: c615de41d6000aa5259f4d2d0ea83f07c5e4b127
+PODFILE CHECKSUM: 6a0d8e43ac0cd3dfaf60f1fe8923a4228cc997dd
 
 COCOAPODS: 1.1.1
