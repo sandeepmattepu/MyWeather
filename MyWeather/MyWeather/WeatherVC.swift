@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreLocation
 import ReachabilitySwift
+import Firebase
 
 class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate
 {
@@ -23,6 +24,7 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     @IBOutlet weak var tableVIew: UITableView!
     @IBOutlet weak var minTempLabel : UILabel!
     @IBOutlet weak var maxTempLabel : UILabel!
+    @IBOutlet weak var adBannerView: GADBannerView!
     
     private var locationManager : CLLocationManager!
     private var todayTemperature = TodayWeather()
@@ -142,6 +144,8 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         {
             // Please turn on location services
         }
+        // Displaying ads
+        attemptDisplayingADS()
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus)
@@ -202,6 +206,15 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     @IBAction func reloadWethterData(_ sender: UIButton)
     {
         attemptDownloading()
+    }
+    
+    func attemptDisplayingADS()
+    {
+        let testID = "ca-app-pub-3940256099942544/2934735716"
+        let releaseAdId = "ca-app-pub-6162837302788799/1387007067"
+        adBannerView.adUnitID = testID
+        adBannerView.rootViewController = self
+        adBannerView.load(GADRequest())
     }
 }
 
