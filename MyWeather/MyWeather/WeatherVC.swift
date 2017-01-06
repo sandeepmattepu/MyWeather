@@ -221,9 +221,8 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     func attemptDisplayingADS()
     {
-        let testID = "ca-app-pub-3940256099942544/2934735716"
         let releaseAdId = "ca-app-pub-6162837302788799/1387007067"
-        adBannerView.adUnitID = testID
+        adBannerView.adUnitID = releaseAdId
         adBannerView.rootViewController = self
         adBannerView.load(GADRequest())
     }
