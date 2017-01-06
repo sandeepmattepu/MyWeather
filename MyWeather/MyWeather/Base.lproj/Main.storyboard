@@ -27,6 +27,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGb-RX-aiy" userLabel="TodayWeatherLoadingView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="275"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5Jx-n3-jKe">
+                                        <rect key="frame" x="145" y="123" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="UDe-LY-zZh"/>
+                                            <constraint firstAttribute="height" constant="30" id="fpx-Oz-FVQ"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.95686274509803915" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5Jx-n3-jKe" firstAttribute="centerX" secondItem="MGb-RX-aiy" secondAttribute="centerX" id="Qh5-cE-d2C"/>
+                                    <constraint firstItem="5Jx-n3-jKe" firstAttribute="centerY" secondItem="MGb-RX-aiy" secondAttribute="centerY" id="X1B-pA-dKD"/>
+                                    <constraint firstAttribute="height" constant="275" id="iIb-DH-fFp">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="160"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="200"/>
+                                    </constraint>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJR-Kw-rFq" userLabel="ForeCastWeatherLoadingView">
+                                <rect key="frame" x="0.0" y="275" width="320" height="293"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1hZ-Re-j7M">
+                                        <rect key="frame" x="145" y="132" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="p2l-YG-27c"/>
+                                            <constraint firstAttribute="width" constant="30" id="uYT-DQ-D3T"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luo-ty-flP">
+                                        <rect key="frame" x="106" y="239" width="109" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="109" id="BoL-Mz-dAp"/>
+                                            <constraint firstAttribute="height" constant="30" id="LSg-2e-R93"/>
+                                        </constraints>
+                                        <state key="normal" title="Reload Weather"/>
+                                        <connections>
+                                            <action selector="reloadWethterData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tlh-1E-lqF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.54509803921568623" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Luo-ty-flP" secondAttribute="bottom" constant="24" id="BaZ-ks-KVT"/>
+                                    <constraint firstItem="1hZ-Re-j7M" firstAttribute="centerY" secondItem="gJR-Kw-rFq" secondAttribute="centerY" id="Vep-x9-qcA"/>
+                                    <constraint firstItem="Luo-ty-flP" firstAttribute="centerX" secondItem="gJR-Kw-rFq" secondAttribute="centerX" id="cxi-kI-bAk"/>
+                                    <constraint firstItem="1hZ-Re-j7M" firstAttribute="centerX" secondItem="gJR-Kw-rFq" secondAttribute="centerX" id="yJG-mp-GJr"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wlx-ki-6Cv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
@@ -183,6 +234,7 @@
                                             <constraint firstAttribute="height" constant="250" id="Le1-LJ-XDf">
                                                 <variation key="heightClass=compact-widthClass=compact" constant="160"/>
                                                 <variation key="heightClass=compact-widthClass=regular" constant="200"/>
+                                                <variation key="heightClass=regular-widthClass=regular" constant="350"/>
                                             </constraint>
                                             <constraint firstItem="Ntn-cJ-y2Y" firstAttribute="leading" secondItem="RHe-H9-fSE" secondAttribute="leading" constant="16" id="Mqc-HS-760"/>
                                             <constraint firstAttribute="bottom" secondItem="Ntn-cJ-y2Y" secondAttribute="bottom" constant="16" id="SSM-FU-YaH"/>
@@ -208,7 +260,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9Fv-ed-PXU">
-                                                            <rect key="frame" x="8" y="79" width="85" height="25"/>
+                                                            <rect key="frame" x="8" y="78" width="85" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="85" id="ktY-VA-vz3"/>
                                                             </constraints>
@@ -217,7 +269,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KVB-6P-9Se">
-                                                            <rect key="frame" x="117.5" y="40.5" width="85" height="30"/>
+                                                            <rect key="frame" x="118" y="41" width="85" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="85" id="Cxu-qx-Vb6"/>
                                                                 <constraint firstAttribute="height" constant="30" id="R3G-oX-YzN"/>
@@ -233,7 +285,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aPW-ve-EzY">
-                                                            <rect key="frame" x="255" y="79.5" width="41" height="25"/>
+                                                            <rect key="frame" x="255" y="78" width="41" height="25"/>
                                                             <fontDescription key="fontDescription" name="BlackChancery" family="BlackChancery" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -271,57 +323,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="9WJ-Ov-Bc3"/>
                                     <constraint firstAttribute="width" constant="320" id="nca-PU-dT0"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGb-RX-aiy" userLabel="TodayWeatherLoadingView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="275"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5Jx-n3-jKe">
-                                        <rect key="frame" x="145" y="123" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="UDe-LY-zZh"/>
-                                            <constraint firstAttribute="height" constant="30" id="fpx-Oz-FVQ"/>
-                                        </constraints>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.95686274509803915" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="5Jx-n3-jKe" firstAttribute="centerX" secondItem="MGb-RX-aiy" secondAttribute="centerX" id="Qh5-cE-d2C"/>
-                                    <constraint firstItem="5Jx-n3-jKe" firstAttribute="centerY" secondItem="MGb-RX-aiy" secondAttribute="centerY" id="X1B-pA-dKD"/>
-                                    <constraint firstAttribute="height" constant="275" id="iIb-DH-fFp">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="160"/>
-                                        <variation key="heightClass=compact-widthClass=regular" constant="200"/>
-                                    </constraint>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJR-Kw-rFq" userLabel="ForeCastWeatherLoadingView">
-                                <rect key="frame" x="0.0" y="275" width="320" height="293"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1hZ-Re-j7M">
-                                        <rect key="frame" x="145" y="132" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="p2l-YG-27c"/>
-                                            <constraint firstAttribute="width" constant="30" id="uYT-DQ-D3T"/>
-                                        </constraints>
-                                    </activityIndicatorView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luo-ty-flP">
-                                        <rect key="frame" x="106" y="239" width="109" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="109" id="BoL-Mz-dAp"/>
-                                            <constraint firstAttribute="height" constant="30" id="LSg-2e-R93"/>
-                                        </constraints>
-                                        <state key="normal" title="Reload Weather"/>
-                                        <connections>
-                                            <action selector="reloadWethterData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tlh-1E-lqF"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.54509803921568623" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Luo-ty-flP" secondAttribute="bottom" constant="24" id="BaZ-ks-KVT"/>
-                                    <constraint firstItem="1hZ-Re-j7M" firstAttribute="centerY" secondItem="gJR-Kw-rFq" secondAttribute="centerY" id="Vep-x9-qcA"/>
-                                    <constraint firstItem="Luo-ty-flP" firstAttribute="centerX" secondItem="gJR-Kw-rFq" secondAttribute="centerX" id="cxi-kI-bAk"/>
-                                    <constraint firstItem="1hZ-Re-j7M" firstAttribute="centerX" secondItem="gJR-Kw-rFq" secondAttribute="centerX" id="yJG-mp-GJr"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -401,7 +402,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcb-zC-Smv">
-                                <rect key="frame" x="133" y="100" width="55" height="20"/>
+                                <rect key="frame" x="132.5" y="100" width="55" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="EuB-F2-KkP"/>
                                     <constraint firstAttribute="width" constant="55" id="yhT-8I-IJV"/>
@@ -418,7 +419,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4v-UR-A2K">
-                                <rect key="frame" x="83" y="518" width="155" height="30"/>
+                                <rect key="frame" x="82.5" y="518" width="155" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="155" id="gve-tZ-heZ"/>
                                     <constraint firstAttribute="height" constant="30" id="rd3-dN-8bP"/>

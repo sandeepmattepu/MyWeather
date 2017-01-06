@@ -98,16 +98,27 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return forecastWeather.arrayOfForeCast.count
+        // Last cell will empty to prevent add banner to interpet table cell view
+        return (forecastWeather.arrayOfForeCast.count + 1)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "forecastWeather") as? ForecastCell
         {
-            cell.configureCell(forecast: forecastWeather.arrayOfForeCast[indexPath.row])
-            return cell
+            if indexPath.row < forecastWeather.arrayOfForeCast.count
+            {
+                cell.configureCell(forecast: forecastWeather.arrayOfForeCast[indexPath.row])
+                return cell
+            }
+            // Show empty cell
+            else
+            {
+                cell.configureCell(forecast: nil)
+                return cell
+            }
         }
+        
         return ForecastCell()
     }
     
@@ -155,8 +166,8 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
             if (AppDelegate.currentViewController != WeatherVC.self)
             {
                 dismiss(animated: true, completion: nil)
-                attemptDownloading()
             }
+            attemptDownloading()
         }
         else if status == .denied
         {

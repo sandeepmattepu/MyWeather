@@ -23,16 +23,28 @@ class ForecastCell: UITableViewCell
         super.awakeFromNib()
     }
     
-    func configureCell(forecast : ForecastWeatherData)
+    func configureCell(forecast : ForecastWeatherData?)
     {
-        dateLabel.text = forecast.dateString
-        weatherType.text = forecast.weatherType
-        if let weatherAssetName = forecast.weatherTypeImageString
+        if let someForecast = forecast
         {
-            let imageToLoad = UIImage(named: weatherAssetName)
-            weatherTypeImage.image = imageToLoad
+            dateLabel.text = someForecast.dateString
+            weatherType.text = someForecast.weatherType
+            if let weatherAssetName = someForecast.weatherTypeImageString
+            {
+                let imageToLoad = UIImage(named: weatherAssetName)
+                weatherTypeImage.image = imageToLoad
+            }
+            minimumLabel.text = someForecast.minTemperature
+            maximumLabel.text = someForecast.maxTemperature
         }
-        minimumLabel.text = forecast.minTemperature
-        maximumLabel.text = forecast.maxTemperature
+            // For empty cell
+        else
+        {
+            dateLabel.text = ""
+            weatherType.text = ""
+            weatherTypeImage.image = nil
+            minimumLabel.text = ""
+            maximumLabel.text = ""
+        }
     }
 }
