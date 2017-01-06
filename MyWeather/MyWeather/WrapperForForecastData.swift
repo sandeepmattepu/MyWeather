@@ -14,4 +14,5 @@ import Foundation
 class WrapperForForecastData
 {
     var arrayOfForeCast = Array<ForecastWeatherData>()
+    var noOfWeatherReports = 0
 }

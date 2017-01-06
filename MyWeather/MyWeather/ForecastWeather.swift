@@ -38,11 +38,9 @@ class ForecastWeatherData : WeatherData
                                 let forecast = ForecastWeatherData()
                                 if let dateStamp = dictionaryAtIndex["dt"] as? Int
                                 {
-                                    let dateFormatter = DateFormatter()
-                                    dateFormatter.timeStyle = .none
-                                    dateFormatter.dateFormat = "EEEE"
-                                    let date = Date(timeIntervalSince1970: TimeInterval(dateStamp))
-                                    forecast.dateString = dateFormatter.string(from: date)
+                                    wrapperForForecast.noOfWeatherReports += 1
+                                    let dayInWeek = wrapperForForecast.noOfWeatherReports
+                                    self.formatDate(forecast: forecast, dateStamp: dateStamp, dayInWeek: dayInWeek)
                                 }
                                 if let temp = dictionaryAtIndex["temp"] as? Dictionary<String,Any>
                                 {
@@ -111,5 +109,26 @@ class ForecastWeatherData : WeatherData
     func updateObjectAndUI(wrapperForForeCast : WrapperForForecastData, setUI : @escaping ()->Void, latitudeAndLongitude :(Float,Float))
     {
         downloadForeCastWeatherAt(Latitude: latitudeAndLongitude.0, Longitude: latitudeAndLongitude.1, wrapperForForecast: wrapperForForeCast, setUI: setUI)
+    }
+    
+    private func formatDate(forecast : ForecastWeatherData, dateStamp : Int, dayInWeek : Int)
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        
+        // Just show week day for date less than in week
+        if dayInWeek <= 7
+        {
+            dateFormatter.dateFormat = "EEEE"
+            let date = Date(timeIntervalSince1970: TimeInterval(dateStamp))
+            forecast.dateString = dateFormatter.string(from: date)
+        }
+            // show date after a week
+        else
+        {
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let date = Date(timeIntervalSince1970: TimeInterval(dateStamp))
+            forecast.dateString = dateFormatter.string(from: date)
+        }
     }
 }

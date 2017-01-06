@@ -21,7 +21,7 @@ struct OpenWeatherAPI
     private static let latitudeURL = "lat="
     private static let longitudeURL = "&lon="
     private static let endURLForCurrentTemp = "&appid="
-    private static let endURLForForecast = "&cnt=8&mode=json&appid="
+    private static let endURLForForecast = "&cnt=10&mode=json&appid="
     private static let keyForAPI = "d0ece421fb2f6236408bd2fdf68df052"
     private static var urlToSendRequest : String!
     
