@@ -10,11 +10,12 @@ import Foundation
 import Alamofire
 
 /**
-    This class is used to make request of Forecast data and set the UI after downloading the data
+    This class acts as model layer for forecast data and also used to make request of Forecast data and set the UI after downloading the data
  */
 class ForecastWeatherData : WeatherData
 {
     private var _numberOfWeatherReports : Int = 0
+    /// Number of weather reports downloaded, initially it's value will be 0
     var numberOfWeatherReports : Int
         {   return  _numberOfWeatherReports     }
     
@@ -26,6 +27,7 @@ class ForecastWeatherData : WeatherData
             response in
             if response.result.isSuccess
             {
+                // Parsing the JSON after downloading is success
                 if let JSON = response.result.value as? Dictionary<String,Any>
                 {
                     if let list = JSON["list"] as? Array<Dictionary<String,Any>>
@@ -33,6 +35,8 @@ class ForecastWeatherData : WeatherData
                         if let count = JSON["cnt"] as? Int
                         {
                             self._numberOfWeatherReports = count
+                            
+                            // Loop to download weather information of multiple days
                             for dictionaryAtIndex in list
                             {
                                 let forecast = ForecastWeatherData()
@@ -40,6 +44,7 @@ class ForecastWeatherData : WeatherData
                                 {
                                     wrapperForForecast.noOfWeatherReports += 1
                                     let dayInWeek = wrapperForForecast.noOfWeatherReports
+                                    // To format date string using dateStamp
                                     self.formatDate(forecast: forecast, dateStamp: dateStamp, dayInWeek: dayInWeek)
                                 }
                                 if let temp = dictionaryAtIndex["temp"] as? Dictionary<String,Any>
@@ -90,6 +95,7 @@ class ForecastWeatherData : WeatherData
         })
     }
     
+    /// This function is used to handle failure condition while downloading data
     private func failureCode()
     {
         // Set all values to nil or ""
@@ -100,7 +106,7 @@ class ForecastWeatherData : WeatherData
     }
     
     /**
-        This method will determine what UI need to be set after downloading data, also it will determine Weather based on which geometric coordinated
+        This method will accept the closure which sets the UI after downloading data, also it will download Forecast data based on the geometric coordinates
      
         - Parameter wrapperForForeCast: Pass a WrapperForForecastDate instance
         - Parameter setUI: Pass closure which accepts code to set UI
@@ -111,6 +117,7 @@ class ForecastWeatherData : WeatherData
         downloadForeCastWeatherAt(Latitude: latitudeAndLongitude.0, Longitude: latitudeAndLongitude.1, wrapperForForecast: wrapperForForeCast, setUI: setUI)
     }
     
+    /// This function is used to format date based on the datestamp and forecast data. If the dateStamp is above one week from present day, it will format it as yyyy-MM-dd. If the dateStamp is below one week from present day, it will format it as name of the day(like Wednesday)
     private func formatDate(forecast : ForecastWeatherData, dateStamp : Int, dayInWeek : Int)
     {
         let dateFormatter = DateFormatter()

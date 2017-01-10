@@ -21,6 +21,7 @@ class ErrorVC: UIViewController
         super.viewDidLoad()
         failedReasonLabel.text = failedReason.rawValue
         
+        // Showing appropriate UI based on the failed reason
         if failedReason == WeatherFailedReason.PARENTAL_CONTROL_ON
         {
             grantPermissionButton.isHidden = true

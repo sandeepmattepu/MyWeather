@@ -28,7 +28,7 @@ class WeatherData
     }
     
     /**
-        Pass Array of weather data as parameters
+        Pass Array of weather data as parameters which can be used to set weather type
         - Parameter arrayOfDic: Pass an array of dictionary to parse Weather type data
     */
     final func setWeatherTypeFrom(arrayOfDic : Array<Dictionary<String,Any>>)

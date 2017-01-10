@@ -11,6 +11,11 @@ import CoreLocation
 
 extension CLAuthorizationStatus
 {
+    /**
+        This function will convert the CLAuthorizationStatus raw value which are in int to appropriate string values. Use this string values to understand the status of location authorization
+        - Parameter id: pass CLAuthorizationStatus rawvalue
+        - Returns: It returns a string which helps to understand the status of location authorization
+    */
     static func statusInString(id : Int32) -> String
     {
         switch id

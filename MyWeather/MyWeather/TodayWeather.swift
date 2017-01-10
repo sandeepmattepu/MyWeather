@@ -25,7 +25,7 @@ class TodayWeather : WeatherData
         self.dateString = dateFormatter.string(from: date)
     }
     
-    // Actual implementation making request to API using passed parameters in updateObjectAndUI
+    /// Actual implementation making request to API and set the UI with the help of the closure sent as argument to the method
     private func downloadTodayWeatherAt(Latitude : Float, Longitude : Float, setUI : @escaping (String?)->Void)
     {
         let requestFromAPI = Alamofire.request(OpenWeatherAPI.getURLStringForCurrentWeatherAt(Latitude: Latitude, Longitude: Longitude))
@@ -33,6 +33,7 @@ class TodayWeather : WeatherData
             response in
             if response.result.isSuccess
             {
+                // Parsing JSON after downloading is success
                 if let JSON = response.result.value as? Dictionary<String,Any>
                 {
                     // Setting all temperatures
@@ -80,10 +81,8 @@ class TodayWeather : WeatherData
         })
     }
     
-    /** This function is to parse and format all the weather data into proper decimal numbers, also to convert temperature from Kelvin to
-        degrees centigrade
-     
-         - Parameter dicAtKeyMain: Pass a dictionary of temperatures which is obtained after parsing JSON at main key
+    /** This function is to parse and format all the weather data into proper decimal numbers, also to convert temperature from Kelvin to degrees centigrade
+        - Parameter dicAtKeyMain: pass the dictionary which is parsed at "main" key
      */
     private func setAllTemperatures(dicAtKeyMain : Dictionary<String, Any>)
     {
@@ -125,6 +124,7 @@ class TodayWeather : WeatherData
         }
     }
     
+    /// Handle failure if there is problem in downloading the weather data
     private func failureCode()
     {
         // Set all values to nil or ""
@@ -136,6 +136,13 @@ class TodayWeather : WeatherData
         self.cityName = "Unknown"
     }
     
+    /**
+        Use this function to download today's weather data based on the geometric co-ordinates and also to set the UI after downloading the data
+     
+        - Parameter setUI: pass a closure which has code to set UI
+     
+        - Parameter latitudeAndLongitude: Pass a float tupule which has latitude and longitude information
+     */
     func updateObjectAndUI(setUI : @escaping (String?)->Void, latitudeAndLongitude :(Float,Float))
     {
         downloadTodayWeatherAt(Latitude: latitudeAndLongitude.0, Longitude: latitudeAndLongitude.1, setUI: setUI)

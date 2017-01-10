@@ -37,7 +37,7 @@ class ForecastCell: UITableViewCell
             minimumLabel.text = someForecast.minTemperature
             maximumLabel.text = someForecast.maxTemperature
         }
-            // For empty cell
+            // For empty cell, might be an ad
         else
         {
             dateLabel.text = ""

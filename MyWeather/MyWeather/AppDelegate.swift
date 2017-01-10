@@ -14,6 +14,7 @@ import ReachabilitySwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
+    /// describes which view controller is presently on the screen
     static var currentViewController : UIViewController.Type!
     static let rechability = Reachability()!
     static var hasConnectedToInternet : Bool = false

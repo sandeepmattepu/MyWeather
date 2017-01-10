@@ -49,9 +49,6 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         locationManager = appDelegate.locationManager
         locationManager.delegate = self
         let authorizationStatus = CLLocationManager.authorizationStatus()
-        print(CLAuthorizationStatus.statusInString(id: authorizationStatus.rawValue))
-        // Parentel controlls turned on for restricted
-        // User turned of for location services for denied
         if (authorizationStatus == .restricted) || (authorizationStatus == .denied)
         {
             performSegue(withIdentifier: "SorryView", sender: WeatherFailedReason.LOCATION_SERVICES_IS_OFF)
@@ -63,7 +60,7 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         else
         {
             // After retriving location check data connection and download data
-            
+            // Setting the code if the internet is availabe
             reachability.whenReachable = { reachability in
                 DispatchQueue.main.async
                 {
@@ -75,6 +72,7 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
                     self.attemptDownloading()
                 }
             }
+            // Setting the code if the internet is unavailable
             reachability.whenUnreachable = { reachability in
                 DispatchQueue.main.async
                 {
@@ -85,6 +83,7 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
                     }
                 }
             }
+            // After setting the code to handle internet availability and unavailability, start the notifier which will observe the changes in internet connectivity changes
             do
             {
                 try reachability.startNotifier()
@@ -122,6 +121,7 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         return ForecastCell()
     }
     
+    /// This method is passed as closure to Set the UI of today's weather after downloading the today's weather data
     func updateUIForTodayTemperature(imageFileName : String?)
     {
         averageTemp.text = todayTemperature.averageTemperature
@@ -138,12 +138,16 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         maxTempLabel.text = todayTemperature.maxTemperature
     }
     
+    /// This method is passed as closure to Set the UI of table view after downloading the forecast weather data
     func setUIForForeCast()
     {
         tableVIew.reloadData()
         loadingTableView.isHidden = true
     }
     
+    /** This method will attempt to retrive the location of the user and downloads the ad banners.
+        - Warning: Always call this method after making sure that location services are available for the app to access
+    */
     private func attemptDownloading()
     {
         if CLLocationManager.locationServicesEnabled()
@@ -159,6 +163,7 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         attemptDisplayingADS()
     }
     
+    // This method will be called when there is change in authorization status
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus)
     {
         if status == .authorizedWhenInUse
@@ -185,16 +190,22 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
     }
     
+    // This method will be called when the location is requested or updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         let firstLocation = locations.first
         latitudeAndLongitude.0 = (firstLocation?.coordinate.latitude)!
         latitudeAndLongitude.1 = (firstLocation?.coordinate.longitude)!
+        
+        // Calling the method which will download the today weather
         self.todayTemperature.updateObjectAndUI(setUI: self.updateUIForTodayTemperature,latitudeAndLongitude: (Float(latitudeAndLongitude.0),Float(latitudeAndLongitude.1)))
+        
+        // Calling the method which will download the forecast weather
         let forecast = ForecastWeatherData()
         forecast.updateObjectAndUI(wrapperForForeCast: self.forecastWeather, setUI: self.setUIForForeCast,latitudeAndLongitude: (Float(self.latitudeAndLongitude.0),Float(self.latitudeAndLongitude.1)))
     }
     
+    // This function will be called when there is error in retriving the location
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
         print(error.localizedDescription)
@@ -219,6 +230,7 @@ class WeatherVC : UIViewController, UITableViewDelegate, UITableViewDataSource, 
         attemptDownloading()
     }
     
+    /// This method will download and render the ads on the GADBannerView
     func attemptDisplayingADS()
     {
         let releaseAdId = "ca-app-pub-6162837302788799/1387007067"
