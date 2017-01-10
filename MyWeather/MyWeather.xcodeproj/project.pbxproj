@@ -442,6 +442,7 @@
 				PROVISIONING_PROFILE = "901f2fc2-e3cb-4f17-9809-4b107bb2418c";
 				PROVISIONING_PROFILE_SPECIFIER = "Mattepu Weather";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -461,6 +462,7 @@
 				PROVISIONING_PROFILE = "901f2fc2-e3cb-4f17-9809-4b107bb2418c";
 				PROVISIONING_PROFILE_SPECIFIER = "Mattepu Weather";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -526,6 +528,7 @@
 				PROVISIONING_PROFILE = "901f2fc2-e3cb-4f17-9809-4b107bb2418c";
 				PROVISIONING_PROFILE_SPECIFIER = "Mattepu Weather";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Distribution;
 		};
